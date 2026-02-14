@@ -190,7 +190,7 @@ require_once 'connect_db.php';
   </div>
 </div>
 
-<!-- ════════════════ TOAST ════════════════ -->
+<!--  TOAST  -->
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
   <div id="appToast" class="toast align-items-center border-0 text-white"
        role="alert" aria-live="assertive" aria-atomic="true">
@@ -202,7 +202,7 @@ require_once 'connect_db.php';
   </div>
 </div>
 
-<!-- Bootstrap 5 JS -->
+<!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
@@ -220,14 +220,14 @@ let allEntries    = [];
 let pendingDelete = null;
 let viewCurrentId = null; 
 
-// ── Toast ────────────────────────────────────────────────
+// ── Toast 
 function showToast(msg, type = 'success') {
   toastEl.className = `toast align-items-center border-0 text-white bg-${type}`;
   document.getElementById('toastMsg').textContent = msg;
   bsToast.show();
 }
 
-// ── API helper ───────────────────────────────────────────
+// ── API 
 async function api(action, body = null) {
   const opts = { method: body ? 'POST' : 'GET' };
   let url = `${API}?action=${action}`;
@@ -238,7 +238,7 @@ async function api(action, body = null) {
   return json.data;
 }
 
-// ── Format helpers ───────────────────────────────────────
+// ── Format helpers 
 function fmtDate(iso) {
   const [y, m, d] = iso.split('-');
   return new Date(y, m - 1, d).toLocaleDateString('en-US', {
@@ -249,7 +249,7 @@ function excerpt(text, max = 160) {
   return text.length > max ? text.slice(0, max).trimEnd() + '…' : text;
 }
 
-// ── Render entries ───────────────────────────────────────
+// ── Render entries
 function renderEntries(entries) {
   const list  = document.getElementById('entriesList');
   const empty = document.getElementById('emptyState');
@@ -293,7 +293,7 @@ function escHtml(s) {
 }
 function escAttr(s) { return escHtml(s); }
 
-// ── Load all entries ─────────────────────────────────────
+// ── Load all entries
 async function loadEntries() {
   document.getElementById('loadingSpinner').style.display = 'block';
   document.getElementById('entriesList').innerHTML = '';
@@ -308,7 +308,7 @@ async function loadEntries() {
   }
 }
 
-// ── Search ───────────────────────────────────────────────
+// ── Search
 function filterEntries() {
   const q = document.getElementById('searchInput').value.toLowerCase().trim();
   const filtered = q
@@ -322,7 +322,7 @@ function filterEntries() {
 }
 document.getElementById('searchInput').addEventListener('input', filterEntries);
 
-// ── ADD form ─────────────────────────────────────────────
+// ── ADD form 
 document.getElementById('addDate').value = new Date().toISOString().slice(0, 10);
 
 document.getElementById('addForm').addEventListener('submit', async e => {
@@ -354,7 +354,7 @@ document.getElementById('addForm').addEventListener('submit', async e => {
   }
 });
 
-// ── VIEW ─────────────────────────────────────────────────
+// ── VIEW 
 async function openView(id) {
   try {
     const entry = await api(`get&id=${id}`);
@@ -368,16 +368,16 @@ async function openView(id) {
   }
 }
 
-// "Edit This Entry" button inside the view modal
+// Edit 
 document.getElementById('viewEditBtn').addEventListener('click', () => {
   viewModal.hide();
-  // Wait for view modal to fully close before opening edit modal
+ 
   document.getElementById('viewModal').addEventListener('hidden.bs.modal', () => {
     openEdit(viewCurrentId);
   }, { once: true });
 });
 
-// ── EDIT ─────────────────────────────────────────────────
+// ── EDIT
 async function openEdit(id) {
   try {
     const entry = await api(`get&id=${id}`);
@@ -419,7 +419,7 @@ document.getElementById('saveEditBtn').addEventListener('click', async () => {
   }
 });
 
-// ── DELETE ────────────────────────────────────────────────
+// ── DELETE 
 function openDelete(id, title) {
   pendingDelete = id;
   document.getElementById('deleteEntryTitle').textContent = title;
@@ -447,7 +447,7 @@ document.getElementById('confirmDeleteBtn').addEventListener('click', async () =
   }
 });
 
-// ── Boot ─────────────────────────────────────────────────
+// ── Boot 
 loadEntries();
 </script>
 </body>
