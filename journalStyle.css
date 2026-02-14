@@ -1,0 +1,215 @@
+/* ── Custom theme ── */
+    :root {
+      --journal-bg:      #FBEFEF;
+      --journal-card:    #FCF8F8;
+      --journal-accent:  #222222;
+      --journal-primary: #F5AFAF;
+      --journal-danger:  #740A03;
+      --journal-border:  #e0d8cc;
+      --journal-shadow:  0 5px 12px #aba6a9;
+    }
+
+    body {
+      background: var(--journal-bg);
+      font-family: 'Delius', cursive;
+      color: #000000;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .journal-header {
+      background: #e48c8c;
+      color: #ffffff;
+      padding: 2.5rem 0 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(44,74,122,.3);
+    }
+    .journal-header h1 {
+      font-size: 2.4rem;
+      letter-spacing: .04em;
+      font-weight: 700;
+    }
+    .journal-header p {
+      opacity: .85;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    /* ── Cards ── */
+    .card {
+      border: 1px solid var(--journal-border);
+      border-radius: 12px;
+      background: var(--journal-card);
+      box-shadow: var(--journal-shadow);
+    }
+    .card-header {
+      background: transparent;
+      border-bottom: 1px solid var(--journal-border);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #000000;
+    }
+
+    /* ── Form ── */
+    .form-control, .form-control:focus {
+      border-radius: 8px;
+      border-color: var(--journal-border);
+      font-family: inherit;
+    }
+    .form-control:focus {
+      border-color: var(--journal-primary);
+      box-shadow: 0 0 0 3px rgba(74,111,165,.15);
+    }
+    textarea.form-control { resize: vertical; min-height: 150px; }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      background: var(--journal-primary);
+      border-color: var(--journal-primary);
+      border-radius: 8px;
+    }
+    .btn-primary:hover { background: #f48f8f; border-color: #ffffff; }
+    .btn-outline-secondary { border-radius: 8px; }
+
+    /* ── Journal Entries ── */
+    .entry-card {
+      border-left: 10px solid var(--journal-primary);
+      transition: transform .15s, box-shadow .20s;
+      margin-bottom: 15px;
+    }
+    .entry-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.11);
+    }
+    .entry-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: .25rem;
+    }
+    .entry-date {
+      font-size: .82rem;
+      color: var(--journal-accent);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: .55rem;
+    }
+    .entry-content {
+      color: #555;
+      font-size: .97rem;
+      line-height: 1.65;
+    }
+    .entry-actions { gap: .5rem; }
+
+    /* ── Search ── */
+    #searchInput { border-radius: 20px; padding-left: 1.1rem; }
+
+    /* ── Empty state ── */
+    #emptyState { display: none; }
+
+    /* ── Toast ── */
+    .toast-container { z-index: 9999; }
+
+    /* ── Modal form ── */
+    .modal-content { border-radius: 14px; border: none; }
+    .modal-header {
+      background: #F5AFAF;
+      color: #000000;
+      border-radius: 14px 14px 0 0;
+    }
+
+    /* ── Custom action buttons ── */
+.btn-view {
+  background-color: transparent;
+  border: 1px solid #f48f8f;
+  color: black;
+}
+.btn-view:hover {
+  background-color: #BADFDB;
+  color: #000000;
+}
+
+.btn-edit {
+  background-color: transparent;
+  border: 1px solid #f48f8f;
+  color: black;
+}
+.btn-edit:hover {
+ background-color: #FFEC9E;
+  color: #000000;
+}
+
+.btn-delete {
+  background-color: transparent;
+  border: 1px solid #f48f8f;
+  color: black;
+}
+.btn-delete:hover {
+  background-color: #dc5d5d;
+  color: #000000;
+}
+
+.btn-close {
+  background-color: transparent;
+  border: 1px solid #f48f8f;
+  color: black;
+  width: 80px;
+  height: 25px;
+}
+
+  .btn-view-close {
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+}
+.btn-view-close:hover {
+  background-color: rgb(125, 125, 125);
+  color: #fff;
+}
+
+.btn-view-edit {
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+}
+.btn-view-edit:hover {
+  background-color: #f48f8f;
+  color: #fff;
+}
+
+.btn-delete-btn {
+  background-color: transparent;
+  border: 1px solid black;
+  color: rgb(255, 0, 0);
+}
+
+    /* ── Loading spinner ── */
+    #loadingSpinner { display: none; }
+
+    /* ── View Modal ── */
+    .view-modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #000000;
+      word-break: break-word;
+    }
+    .view-modal-date {
+      font-size: .88rem;
+      opacity: .85;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: .3rem;
+    }
+    .view-modal-content {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #444;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .entry-title { cursor: pointer; }
+    .entry-title:hover { color: var(--journal-primary); text-decoration: underline; }
+
+    
